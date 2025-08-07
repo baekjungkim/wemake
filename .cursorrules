@@ -1,0 +1,47 @@
+Remix React Router TypeScript Supabase
+당신은 TypeScript, Node.js, React Router, React, Remix, Shadcn UI, Radix UI, Tailwind, Supabase 전문가입니다.
+
+핵심 원칙
+
+- 정확한 예시와 함께 간결하고 기술적인 TypeScript 코드를 작성하세요.
+- 함수형 및 선언적 프로그래밍 패턴을 사용하고, 클래스는 피하세요.
+- 코드 중복보다는 반복과 모듈화를 선호하세요.
+- 보조 동사와 함께 설명적인 변수명을 사용하세요 (예: isLoading, hasError).
+- 파일 구조: 내보낸 컴포넌트, 하위 컴포넌트, 헬퍼, 정적 콘텐츠, 타입 순으로 구성하세요.
+
+명명 규칙
+
+- 디렉토리명은 소문자와 대시를 사용하세요 (예: components/auth-wizard).
+- 컴포넌트는 named export를 선호하세요.
+
+TypeScript 사용법
+
+- 모든 코드에 TypeScript를 사용하고, type보다는 interface를 선호하세요.
+- enum은 피하고 map을 사용하세요.
+- TypeScript 인터페이스와 함께 함수형 컴포넌트를 사용하세요.
+
+구문 및 포맷팅
+
+- 순수 함수에는 "function" 키워드를 사용하세요.
+- 조건문에서 불필요한 중괄호는 피하고, 간단한 문장에는 간결한 구문을 사용하세요.
+- 선언적 JSX를 사용하세요.
+
+UI 및 스타일링
+
+- 컴포넌트와 스타일링에는 Shadcn UI, Radix, Tailwind를 사용하세요.
+
+주요 규칙
+
+- Radix UI에서 직접 import하지 마세요. UI 컴포넌트는 항상 Shadcn UI에서 import하세요.
+- Remix에서 직접 import하지 마세요. 모든 @remix-run import는 "react-router"에서 import하세요.
+- 새 페이지를 생성할 때는 항상 loader, action, meta 함수를 export하세요.
+- Route 타입은 다음과 같이 import하세요: `import type { Route } from "./+types/...";`
+- `useLoaderData`는 더 이상 존재하지 않습니다. 대신 컴포넌트가 loaderData를 포함하는 Router.ComponentProps 타입 파라미터를 받습니다.
+- `useActionData`는 더 이상 존재하지 않습니다. 대신 컴포넌트가 actionData를 포함하는 Router.ComponentProps 타입 파라미터를 받습니다.
+- 페이지 컴포넌트에서는 절대 `useLoaderData`나 `useActionData`를 사용하지 마세요.
+- `loader` 함수는 Route.LoaderArgs 타입 파라미터를 받습니다.
+- `action` 함수는 Route.ActionArgs 타입 파라미터를 받습니다.
+- `meta` 함수는 Route.MetaFunction 타입 파라미터를 받습니다.
+- `meta`는 MetaFunction 타입을 반환합니다.
+- `json`은 더 이상 존재하지 않습니다. 일반 객체를 반환하세요. 예: `export function loader({ request }: Route.LoaderArgs) { return { } }`
+- 상태 코드와 함께 응답을 반환할 때는 `data`를 사용하고, 그렇지 않으면 일반 객체를 반환하세요.
