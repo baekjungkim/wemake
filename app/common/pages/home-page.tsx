@@ -1,3 +1,5 @@
+import { Button } from "~/common/components/ui/button";
+
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
@@ -22,12 +24,12 @@ export default function HomePage() {
             현대적인 웹 개발을 위한 최신 기술 스택으로 구축된 프로젝트입니다.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors">
+            <Button variant="default" size="lg">
               시작하기
-            </button>
-            <button className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-3 px-6 rounded-lg transition-colors">
+            </Button>
+            <Button variant="outline" size="lg">
               더 알아보기
-            </button>
+            </Button>
           </div>
         </section>
 
