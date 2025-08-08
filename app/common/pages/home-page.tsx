@@ -1,4 +1,6 @@
-import { type MetaFunction } from "react-router";
+import { Link, type MetaFunction } from "react-router";
+import { Button } from "~/common/components/ui/button";
+import PostCard from "~/features/community/components/post-card";
 import ProductCard from "~/features/products/components/product-card";
 
 export const meta: MetaFunction = () => {
@@ -10,7 +12,7 @@ export const meta: MetaFunction = () => {
 
 export default function HomePage() {
   return (
-    <div className="px-20">
+    <div className="px-20 space-y-40">
       <div className="grid grid-cols-3 gap-4">
         <div>
           <h2 className="text-5xl font-bold leading-tight tracking-tight">
@@ -19,6 +21,11 @@ export default function HomePage() {
           <p className="text-xl font-light text-foreground">
             The best products made by our community today.
           </p>
+          <Button variant="link" asChild className="text-lg p-0">
+            <Link to="/products/leaderboard">
+              Exploer all All Products &rarr;
+            </Link>
+          </Button>
         </div>
         {Array.from({ length: 10 }).map((_, index) => (
           <ProductCard
@@ -28,6 +35,29 @@ export default function HomePage() {
             comments={12}
             views={12}
             votes={120}
+          />
+        ))}
+      </div>
+      <div className="grid grid-cols-3 gap-4 items-start">
+        <div>
+          <h2 className="text-5xl font-bold leading-tight tracking-tight">
+            Latest Discussions
+          </h2>
+          <p className="text-xl font-light text-foreground">
+            The best discussions made by our community today.
+          </p>
+          <Button variant="link" asChild className="text-lg p-0">
+            <Link to="/community">Explore all Discussions &rarr;</Link>
+          </Button>
+        </div>
+        {Array.from({ length: 10 }).map((_, index) => (
+          <PostCard
+            id={`postId-${index}`}
+            title="What is the best productivity tool?"
+            author="Baekjung"
+            authorAvatarUrl="https://github.com/shadcn.png"
+            category="Productivity"
+            timeAgo="12 hours ago"
           />
         ))}
       </div>

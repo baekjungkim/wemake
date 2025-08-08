@@ -32,9 +32,7 @@ export default function ProductCard({
     <Link to={href}>
       <Card className="w-full flex flex-row items-center justify-between p-4 bg-transparent hover:bg-primary/10">
         <CardHeader>
-          <CardTitle className="text-2xl font-semibold leading-none tracking-tight whitespace-nowrap">
-            {name}
-          </CardTitle>
+          <CardTitle className="whitespace-nowrap">{name}</CardTitle>
           <CardDescription className="text-muted-foreground whitespace-nowrap">
             {description}
           </CardDescription>
