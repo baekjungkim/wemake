@@ -2,6 +2,7 @@ import { Link, type MetaFunction } from "react-router";
 import { Button } from "~/common/components/ui/button";
 import PostCard from "~/features/community/components/post-card";
 import { IdeaCard } from "~/features/ideas/components/idea-card";
+import { JobCard } from "~/features/jobs/components/job-card";
 import ProductCard from "~/features/products/components/product-card";
 
 export const meta: MetaFunction = () => {
@@ -84,6 +85,34 @@ export default function HomePage() {
             likeCount={12}
             onLike={(id) => console.log(`Liked idea: ${id}`)}
             claimed={index % 2 === 0}
+          />
+        ))}
+      </div>
+      <div className="grid grid-cols-4 gap-4">
+        <div>
+          <h2 className="text-5xl font-bold leading-tight tracking-tight">
+            Latest Jobs
+          </h2>
+          <p className="text-xl font-light text-foreground">
+            Find your dream job.
+          </p>
+          <Button variant="link" asChild className="text-lg p-0">
+            <Link to="/jobs">Explore all jobs &rarr;</Link>
+          </Button>
+        </div>
+        {Array.from({ length: 10 }).map((_, index) => (
+          <JobCard
+            key={`job-${index}`}
+            id={`jobId-${index}`}
+            title="Full Stack Developer"
+            company="Facebook"
+            companyLogoUrl="https://github.com/facebook.png"
+            companyHq="San Francisco, CA"
+            timeAgo="12 hours ago"
+            salary="$100,000 - $120,000"
+            type="Full-Time"
+            positionLocation="Remote"
+            onApply={(id) => console.log(`Applied to job: ${id}`)}
           />
         ))}
       </div>
